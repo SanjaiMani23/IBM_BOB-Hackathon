@@ -1,0 +1,109 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --color-primary: #0F62FE;
+  --color-primary-hover: #0353E9;
+  --color-text: #161616;
+  --color-text-secondary: #525252;
+  --color-bg: #F4F4F4;
+  --color-surface: #FFFFFF;
+  --color-border: #D0D0D0;
+  --color-success: #198038;
+  --color-warning: #F1C21B;
+  --color-error: #DA1E28;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'IBM Plex Sans', 'Inter', system-ui, sans-serif;
+  color: #161616;
+  background-color: #F4F4F4;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code, pre, .font-mono {
+  font-family: 'IBM Plex Mono', 'Fira Code', monospace;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #F4F4F4;
+}
+::-webkit-scrollbar-thumb {
+  background: #C6C6C6;
+  border-radius: 0;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #8D8D8D;
+}
+
+/* Utility classes */
+@layer utilities {
+  .border-b-thin {
+    border-bottom: 1px solid #D0D0D0;
+  }
+  .text-label {
+    font-size: 0.6875rem;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #525252;
+  }
+  .diff-add {
+    background-color: #DEFBE6;
+    color: #044317;
+  }
+  .diff-remove {
+    background-color: #FFF1F1;
+    color: #750E13;
+  }
+  .diff-add-dark {
+    background-color: #022D0D;
+    color: #42BE65;
+  }
+  .diff-remove-dark {
+    background-color: #2D0709;
+    color: #FF8389;
+  }
+}
+
+/* Page transitions */
+.page-enter {
+  opacity: 0;
+  transform: translateY(8px);
+}
+.page-enter-active {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 200ms ease, transform 200ms ease;
+}
+
+/* Animated technical grid background */
+@keyframes grid-drift {
+  from { background-position: 0 0; }
+  to   { background-position: 32px 0; }
+}
+
+.hero-grid-bg {
+  background-color: #000000;
+  background-image:
+    linear-gradient(#303030 1px, transparent 1px),
+    linear-gradient(90deg, #303030 1px, transparent 1px);
+  background-size: 32px 32px;
+  animation: grid-drift 60s linear infinite;
+  will-change: background-position;
+}
