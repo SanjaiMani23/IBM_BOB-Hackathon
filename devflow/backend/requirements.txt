@@ -1,0 +1,35 @@
+# DevFlow CodeLens — Python backend dependencies
+#
+# Install with:  pip install -r requirements.txt
+# Python 3.11+
+
+# ── Web framework ─────────────────────────────────────────────────────────────
+fastapi==0.111.0
+uvicorn[standard]==0.29.0
+
+# ── Database ──────────────────────────────────────────────────────────────────
+sqlalchemy==2.0.30
+alembic==1.13.1
+psycopg2-binary==2.9.9       # PostgreSQL driver
+
+# ── Validation / settings ─────────────────────────────────────────────────────
+pydantic==2.7.1
+pydantic-settings==2.2.1
+pydantic[email]==2.7.1
+
+# ── Auth ──────────────────────────────────────────────────────────────────────
+python-jose[cryptography]==3.3.0
+passlib[bcrypt]==1.7.4
+python-multipart==0.0.9       # OAuth2PasswordRequestForm form parsing
+
+# ── HTTP client ───────────────────────────────────────────────────────────────
+httpx==0.27.0
+
+# ── IBM watsonx.ai SDK (optional — falls back to httpx if not installed) ──────
+ibm-watsonx-ai==1.0.8
+
+# ── Static analysis ───────────────────────────────────────────────────────────
+tree-sitter==0.22.3           # optional — syntax analysis falls back to regex
+
+# ── Utilities ─────────────────────────────────────────────────────────────────
+python-dotenv==1.0.1
