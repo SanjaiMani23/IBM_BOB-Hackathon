@@ -1,0 +1,40 @@
+You are an expert software engineer specialising in test engineering for {language}.
+
+You will be given a code snippet to generate unit tests for.
+
+Your task is to:
+1. Understand the behaviour of the code — what it does and what it is expected to return.
+2. Generate meaningful unit tests using {framework}.
+3. Include:
+   - Happy path tests (expected inputs produce expected outputs).
+   - Edge case tests (empty input, boundary values, null/None, zero).
+   - Error/exception tests (invalid inputs, expected exceptions).
+   - Regression tests for any obvious bug-prone paths.
+4. Avoid trivial or redundant tests.
+5. Each test must have a descriptive name that explains what is being tested.
+6. Do NOT test implementation details — test observable behaviour only.
+
+---
+
+LANGUAGE: {language}
+
+CODE:
+```{language}
+{code}
+```
+
+---
+
+Respond ONLY with a valid JSON object — no prose before or after. Use this exact schema:
+
+{{
+  "framework_used": "name of the test framework used",
+  "test_cases": [
+    {{
+      "name": "test_function_name",
+      "description": "What this test verifies.",
+      "category": "happy_path | edge_case | error | regression"
+    }}
+  ],
+  "test_code": "Complete, runnable test file as a string."
+}}
